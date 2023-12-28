@@ -22,21 +22,35 @@ main {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
 }
 
-.message-container {
-  margin-bottom: 1vh; /* Space between message containers */
+.messages-container {
+  max-height: 70vh; /* Adjust the height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 10px; /* Add some padding */
+  border-radius: 10px; /* Optional, for aesthetics */
+  background-color: #252525; /* Optional, for contrast */
+  margin-bottom: 20px; /* Space before buttons */
 }
 
 .message-editable {
-  width: 100%;
+  width: calc(100% - 2vw); /* Subtract padding from total width */
   min-height: 10vh; /* Minimum height relative to viewport height */
   resize: vertical;
-  padding: 1vw 1vw 3vw 1vw; /* Padding relative to viewport width */
+  padding: 1vw; /* Uniform padding on all sides */
   border: none; /* Remove border */
   background-color: #333333; /* Darker background for textarea */
   border-radius: 10px; /* More rounded corners */
   color: #ffffff; /* Light text color */
   position: relative; /* Needed for absolute positioning of the name */
+  overflow: hidden;
+  overflow-y: auto; /* Adds a scrollbar when content overflows */
+  max-height: 200px; /* Maximum height before scrollbar appears */
 }
+
+.message-editable.auto-expand {
+  height: auto; /* Allow the height to adjust automatically */
+  overflow-y: hidden; /* Hide vertical scrollbar */
+}
+
 
 .message-editable:focus {
   background-color: #444444; /* Slightly lighter on focus */
@@ -58,13 +72,21 @@ main {
 
 .message-label {
   position: absolute;
-  bottom: 5px; /* Adjust this value as needed */
-  left: 5px;
+  bottom: 5px; /* Position label below the textarea */
+  right: 1.2rem; /* Align label to the left */
   color: #a0a0a0;
   font-size: 0.85em;
-  background-color: #333333; /* Same as textarea background */
-  padding: 2px 5px;
-  border-radius: 5px;
+  background-color: transparent; /* Same as textarea background */
+  padding: 0; /* Remove padding */
+}
+
+/* Additional styles for user and assistant differentiation */
+.message-label.user {
+  color: #83b38550; /* Green color for user label */
+}
+
+.message-label.assistant {
+  color: #d8b9af6b; /* Orange color for assistant label */
 }
 
 button {

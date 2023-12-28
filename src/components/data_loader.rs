@@ -141,12 +141,13 @@ pub fn data_loader() -> Html {
                             {
                                 if let Some(entry) = data.get(*current_index) {
                                     html! {
-                                        <div>
+                                        <div class="messages-container"> // Container for messages
                                             { for entry.messages.iter().enumerate().map(|(index, message)| {
                                                 let on_edit = on_edit.clone();
+                                                let role_class = if message.role == "user" { "user" } else { "assistant" };
                                                 html! {
                                                     <div class="message-container">
-                                                        <div class="message-with-label">
+                                                        <div class={classes!("message-with-label", role_class)}>
                                                             <textarea
                                                                 class="message-editable"
                                                                 onchange={Callback::from(move |e: Event| {
