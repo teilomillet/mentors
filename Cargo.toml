@@ -1,0 +1,29 @@
+# Cargo.toml
+[package]
+name = "forma"
+version = "0.1.0"
+edition = "2021"
+description = "Template for starting a Yew project using Trunk"
+readme = "README.md"
+repository = "https://github.com/yewstack/yew-trunk-minimal-template"
+license = "MIT OR Apache-2.0"
+keywords = ["yew", "trunk"]
+categories = ["gui", "wasm", "web-programming"]
+
+[[bin]]
+name = "forma_bin" # Or any other unique name
+path = "src/bin/main.rs" # Adjust the path if necessary
+
+[lib]
+name = "forma_lib" # Or any other unique name
+crate-type = ["cdylib", "rlib"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+yew = { version="0.20", features=["csr"] }
+web-sys = { version = "0.3", features = ["File", "FileReader", "Blob"] }
+serde = { version = "1.0", features = ["derive"] }
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+js-sys = "0.3"
+serde_json = "1.0"
