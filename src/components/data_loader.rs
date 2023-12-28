@@ -124,71 +124,78 @@ pub fn data_loader() -> Html {
     
     html! {
         <>
-            {if data.len() == 0 {
-                html! {
-                    <>
-                        <input type="file" accept=".jsonl" {onchange} ref={link}/>
-                        <div>{ "Drop a .jsonl file here or click to select one." }</div>
-                    </>
-                }
-            } else {
-                let current_index_clone_for_previous = current_index.clone();
-                let current_index_clone_for_next = current_index.clone();
+            {
+                if data.len() == 0 {
+                    html! {
+                        <>
+                            <input type="file" accept=".jsonl" {onchange} ref={link}/>
+                            <div>{ "Drop a .jsonl file here or click to select one." }</div>
+                        </>
+                    }
+                } else {
+                    let current_index_clone_for_previous = current_index.clone();
+                    let current_index_clone_for_next = current_index.clone();
     
-                html! {
-                    <div>
-                        {
-                            if let Some(entry) = data.get(*current_index) {
-                                html! {
-                                    <div>
-                                        { for entry.messages.iter().enumerate().map(|(index, message)| {
-                                            let on_edit = on_edit.clone();
-                                            html! {
-                                                <div class="message">
-                                                    <strong>{ &message.role }</strong>
-                                                    <textarea
-                                                        class="message-editable"
-                                                        onchange={Callback::from(move |e: Event| {
-                                                            let input: HtmlInputElement = e.target_unchecked_into();
-                                                            on_edit(index, input.value());
-                                                        })}
-                                                        value={message.content.clone()}
-                                                    >{ &message.content }</textarea>
-                                                </div>
-                                            }
-                                        })}
-                                    </div>
+                    html! {
+                        <main>
+                            {
+                                if let Some(entry) = data.get(*current_index) {
+                                    html! {
+                                        <div>
+                                            { for entry.messages.iter().enumerate().map(|(index, message)| {
+                                                let on_edit = on_edit.clone();
+                                                html! {
+                                                    <div class="message-container">
+                                                        <div class="message-with-label">
+                                                            <textarea
+                                                                class="message-editable"
+                                                                onchange={Callback::from(move |e: Event| {
+                                                                    let input: HtmlInputElement = e.target_unchecked_into();
+                                                                    on_edit(index, input.value());
+                                                                })}
+                                                                value={message.content.clone()}
+                                                            />
+                                                            <div class="message-label">
+                                                                { &message.role }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            })}
+                                        </div>
+                                    }
+                                } else {
+                                    html! { <p>{ "No data available or at the end of the dataset." }</p> }
                                 }
-                            } else {
-                                html! { <p>{ "No data available or at the end of the dataset." }</p> }
                             }
-                        }
-                        <button
-                            onclick={move |_| {
-                                if *current_index_clone_for_previous > 0 {
-                                    current_index_clone_for_previous.set(*current_index_clone_for_previous - 1);
-                                }
-                            }}
-                            disabled={*current_index == 0}
-                        >
-                            { "Previous" }
-                        </button>
-                        <button
-                            onclick={move |_| {
-                                if (*data).get(*current_index_clone_for_next + 1).is_some() {
-                                    current_index_clone_for_next.set(*current_index_clone_for_next + 1);
-                                }
-                            }}
-                        >
-                            { "Next" }
-                        </button>
-                        <button onclick={save_changes}>
-                            { "Save Changes" }
-                        </button>
-                    </div>
-                    
+                            <div class="button-container">
+                                <button
+                                    onclick={move |_| {
+                                        if *current_index_clone_for_previous > 0 {
+                                            current_index_clone_for_previous.set(*current_index_clone_for_previous - 1);
+                                        }
+                                    }}
+                                    disabled={*current_index == 0}
+                                >
+                                    { "Previous" }
+                                </button>
+                                <button
+                                    onclick={move |_| {
+                                        if (*data).get(*current_index_clone_for_next + 1).is_some() {
+                                            current_index_clone_for_next.set(*current_index_clone_for_next + 1);
+                                        }
+                                    }}
+                                >
+                                    { "Next" }
+                                </button>
+                                <button onclick={save_changes}>
+                                    { "Save Changes" }
+                                </button>
+                            </div>
+                        </main>
+                    }
                 }
-            }}
+            }
         </>
-    }
+    }        
 }
