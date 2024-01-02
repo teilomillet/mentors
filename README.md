@@ -1,6 +1,8 @@
 # Mentors
 
-A tool to edits datasets and saved them.
+# Mentors
+
+"Mentors" is a robust and user-friendly tool designed to edit and manage JSONL text datasets efficiently. Tailored for data professionals, researchers, and developers, it simplifies the process of modifying text data with features like adding, deleting, and altering text entries.
 
 ![Imgur Image1](https://i.imgur.com/AH4aq4l.png)
 
@@ -10,7 +12,7 @@ Before you begin, ensure you have met the following requirements:
 - Rust (edition 2021)
 - Trunk
 
-You can install Rust and Trunk using the following commands:
+You can install Rust and Trunk:
 - Rust: Follow instructions at [rust-lang.org](https://www.rust-lang.org/tools/install)
 - Trunk: Follow instructions at [Trunk](https://trunkrs.dev/)
 
@@ -64,7 +66,7 @@ Contributions are what make the open source community such an amazing place to l
 
 ## Contact
 
-For support or inquiries, please open an issue on the [GitHub repository](https://github.com/yewstack/yew-trunk-minimal-template/issues).
+For support or inquiries, please open an issue on the [GitHub repository](https://github.com/teilomillet/mentors/issues).
 
 ## Acknowledgements
 
