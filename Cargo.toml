@@ -1,6 +1,6 @@
 # Cargo.toml
 [package]
-name = "forma"
+name = "mentors"
 version = "0.1.0"
 edition = "2021"
 description = "Template for starting a Yew project using Trunk"
@@ -11,11 +11,11 @@ keywords = ["yew", "trunk"]
 categories = ["gui", "wasm", "web-programming"]
 
 [[bin]]
-name = "forma_bin" # Or any other unique name
+name = "mentors_bin" # Or any other unique name
 path = "src/bin/main.rs" # Adjust the path if necessary
 
 [lib]
-name = "forma_lib" # Or any other unique name
+name = "mentors_lib" # Or any other unique name
 crate-type = ["cdylib", "rlib"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

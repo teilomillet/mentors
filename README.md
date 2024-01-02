@@ -1,37 +1,32 @@
-# Yew Trunk Template
+# Mentors
 
-This is a fairly minimal template for a Yew app that's built with [Trunk].
+A tool to edits datasets and saved them.
 
-## Usage
+## Prerequisites
 
-For a more thorough explanation of Trunk and its features, please head over to the [repository][trunk].
+Before you begin, ensure you have met the following requirements:
+- Rust (edition 2021)
+- Trunk
 
-### Installation
+You can install Rust and Trunk using the following commands:
+- Rust: Follow instructions at [rust-lang.org](https://www.rust-lang.org/tools/install)
+- Trunk: Follow instructions at [Trunk](https://trunkrs.dev/)
 
-If you don't already have it installed, it's time to install Rust: <https://www.rust-lang.org/tools/install>.
-The rest of this guide assumes a typical Rust installation which contains both `rustup` and Cargo.
+## Building the Application
 
-To compile Rust to WASM, we need to have the `wasm32-unknown-unknown` target installed.
-If you don't already have it, install it with the following command:
-
-```bash
-rustup target add wasm32-unknown-unknown
-```
-
-Now that we have our basics covered, it's time to install the star of the show: [Trunk].
-Simply run the following command to install it:
+Build the application using Cargo: 
 
 ```bash
-cargo install trunk wasm-bindgen-cli
+cargo build
 ```
-
-That's it, we're done!
 
 ### Running
 
 ```bash
 trunk serve
 ```
+
+Allows you to go to the application and use it on your computer.
 
 Rebuilds the app whenever a change is detected and runs a local server to host it.
 
@@ -48,27 +43,28 @@ You can also pass the `--release` flag to `trunk serve` if you need to get every
 
 Unless overwritten, the output will be located in the `dist` directory.
 
-## Using this template
+This will start a local server and the application will be accessible in your web browser.
 
-There are a few things you have to adjust when adopting this template.
+## Features and Dependencies
 
-### Remove example code
+- Yew: A modern Rust framework for creating multi-threaded front-end web apps using WebAssembly.
+- Serde: A framework for serializing and deserializing Rust data structures.
+- wasm-bindgen and wasm-bindgen-futures: Facilitate high-level interactions between Wasm modules and JavaScript.
+- js-sys: Provides bindings to global JavaScript functions and objects.
 
-The code in [src/main.rs](src/main.rs) specific to the example is limited to only the `view` method.
-There is, however, a fair bit of Sass in [index.scss](index.scss) you can remove.
+## License
 
-### Update metadata
+Distributed under the MIT OR Apache-2.0 License. See `LICENSE` for more information.
 
-Update the `name`, `version`, `description` and `repository` fields in the [Cargo.toml](Cargo.toml) file.
-The [index.html](index.html) file also contains a `<title>` tag that needs updating.
+## Contributing
 
-Finally, you should update this very `README` file to be about your app.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-### License
+## Contact
 
-The template ships with both the Apache and MIT license.
-If you don't want to have your app dual licensed, just remove one (or both) of the files and update the `license` field in `Cargo.toml`.
+For support or inquiries, please open an issue on the [GitHub repository](https://github.com/yewstack/yew-trunk-minimal-template/issues).
 
-There are two empty spaces in the MIT license you need to fill out: `` and `Teïlo <teilomillet@gmail.com>`.
+## Acknowledgements
 
-[trunk]: https://github.com/thedodd/trunk
+- [Yew](https://yew.rs/)
+- [Trunk](https://trunkrs.dev/)
