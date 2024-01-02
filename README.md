@@ -2,6 +2,9 @@
 
 A tool to edits datasets and saved them.
 
+![Imgur Image1](https://i.imgur.com/AH4aq4l.png)
+![Imgur Image2](https://i.imgur.com/DMtS91z.png)
+
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
