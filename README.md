@@ -1,7 +1,5 @@
 # Mentors
 
-# Mentors
-
 "Mentors" is a robust and user-friendly tool designed to edit and manage JSONL text datasets efficiently. Tailored for data professionals, researchers, and developers, it simplifies the process of modifying text data with features like adding, deleting, and altering text entries.
 
 ![Imgur Image1](https://i.imgur.com/AH4aq4l.png)
